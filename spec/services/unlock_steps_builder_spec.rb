@@ -25,6 +25,16 @@ RSpec.describe UnlockStepsBuilder do
 			end
 		end
 
+		describe 'impossible cases' do
+			context 'when no solution' do
+				let(:target_point) { [9, 9, 9] }
+				let(:restricted_points) { [[9, 8, 9], [8, 9, 9], [9, 9, 8]] }
+				let(:expected_points) { [] }
+
+				it_behaves_like 'when visited points as expected'
+			end
+		end
+
 		describe 'possible cases' do
 			context 'when solution is in one step' do
 				let(:target_point) { [0, 0, 1] }
